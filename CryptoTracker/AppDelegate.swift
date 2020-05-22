@@ -11,7 +11,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -33,5 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        guard let rvc = self.window?.rootViewController as? ViewController else { return }
+        rvc.reloadData()
+    }
+    
 }
 
